@@ -39,13 +39,7 @@ public class MavenSample extends BaseClass {
 		driver.findElement(By.xpath("//input[@type='submit']")).click();
 		String title = driver.getTitle();
 		System.out.println(title);
-
-		List<WebElement> products = driver
-				.findElements(By.xpath("//span[@class='a-size-medium a-color-base a-text-normal']"));
-
-		for (WebElement p : products) {
-			System.out.println(p.getText());
-		}
+	
 
 	}
 
