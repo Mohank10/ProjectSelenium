@@ -39,8 +39,13 @@ public class MavenSample extends BaseClass {
 		driver.findElement(By.xpath("//input[@type='submit']")).click();
 		String title = driver.getTitle();
 		System.out.println(title);
-	
+
+			
+		
+			driver.close();
+			
+		}
 
 	}
 
-}
+
