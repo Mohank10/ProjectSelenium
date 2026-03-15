@@ -40,11 +40,6 @@ public class MavenSample extends BaseClass {
 		String title = driver.getTitle();
 		System.out.println(title);
 
-		List<WebElement> products = driver
-				.findElements(By.xpath("//span[@class='a-size-medium a-color-base a-text-normal']"));
-
-		for (WebElement p : products) {
-			System.out.println(p.getText());
 			
 		
 			driver.close();
@@ -53,4 +48,4 @@ public class MavenSample extends BaseClass {
 
 	}
 
-}
+
