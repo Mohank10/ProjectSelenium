@@ -45,6 +45,10 @@ public class MavenSample extends BaseClass {
 
 		for (WebElement p : products) {
 			System.out.println(p.getText());
+			
+		
+			driver.close();
+			
 		}
 
 	}
