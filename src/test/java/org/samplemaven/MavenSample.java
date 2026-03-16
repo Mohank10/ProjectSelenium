@@ -23,6 +23,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import junit.framework.Assert;
+
 public class MavenSample extends BaseClass {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
@@ -37,12 +39,51 @@ public class MavenSample extends BaseClass {
 
 		driver.findElement(By.id("twotabsearchtextbox")).sendKeys("laptop");
 		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		
+		String parentId = driver.getWindowHandle();
+		Set<String> allId=driver.getWindowHandles();
+		System.out.println(parentId);
+		for (String string : allId) {
+			System.out.println(string);
+
+			if(!string.equals(parentId)) {
+				driver.switchTo().window(string);
+				System.out.println(string);
+			
+			}
+			else {
+				driver.switchTo().window(parentId);
+				
+			}
+			
+		}
+		
+
+driver.findElement(By.xpath("//a[text()='Home & Kitchen']")).click();
 		String title = driver.getTitle();
 		System.out.println(title);
-
+		
+		
 			
 		
-			driver.close();
+		try {
+			List<WebElement> elements = driver.findElements(By.xpath("//span[@class='dcl-truncate dcl-product-title']"));
+			List<WebElement> elements2 = driver.findElements(By.xpath("//span[@class='dcl-truncate dcl-product-title']//ancestor::div[@class='dcl-product-wrapper']//child::div[@class='dcl-price-single']"));
+			
+			
+				for(int i=0;i<elements.size();i++) {
+					System.out.println(elements.get(i).getText()+"-----"+elements2.get(i).getText());
+				
+				
+			
+				}
+			} 
+				catch (Exception e) {
+			System.out.println("error occured while fetching products");
+			System.out.println(e.getStackTrace());
+		}
+		
+			//driver.close();
 			
 		}
 
