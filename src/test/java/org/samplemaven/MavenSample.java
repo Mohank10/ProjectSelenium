@@ -78,7 +78,8 @@ driver.findElement(By.xpath("//a[text()='Home & Kitchen']")).click();
 			
 				}
 			} 
-				catch (Exception e) {
+				
+		catch (Exception e) {
 			System.out.println("error occured while fetching products");
 			System.out.println(e.getStackTrace());
 		}
